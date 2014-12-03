@@ -123,14 +123,14 @@ main(int argc, char ** argv)
 		}
 
 		for_each(g_argv + off, g_argv + g_argc, [&] (const char * fname) {
-			path p = path(fname);
+			path p(path(fname));
 
 			if (exists(p)) {
 				size_t new_id = find_free_id(trash_bin);
 				p = complete(p);
 				ostringstream os; os << new_id;
-				path infopath = TRASH_INFO_PATH / path(os.str());
-				path newpath = TRASH_PATH / path(os.str());
+				path infopath(TRASH_INFO_PATH / path(os.str()));
+				path newpath(TRASH_PATH / path(os.str()));
 				ofstream infof(infopath.c_str());
 
 				if (infof.good()) {
