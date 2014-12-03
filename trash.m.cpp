@@ -14,7 +14,6 @@ using namespace boost::filesystem;
 int g_argc;
 char ** g_argv;
 
-void parse_arguments();
 void print_table(const vector <string>& v);
 
 
